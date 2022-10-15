@@ -25,7 +25,7 @@ fabric.MessageBanner.prototype = (function () {
 
     var _clipper;
     var _bufferSize;
-    var _textContainerMaxWidth = 700;
+    var _textContainerMaxWidth = 800;
     var _clientWidth;
     var _textWidth;
     var _initTextWidth;
