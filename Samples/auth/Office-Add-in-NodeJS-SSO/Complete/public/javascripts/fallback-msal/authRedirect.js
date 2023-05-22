@@ -12,6 +12,10 @@ Office.initialize = async function () {
       handleResponse(response);
     } catch (error) {
       console.error(error);
+      Office.context.ui.messageParent(
+        JSON.stringify({ status: "error", error: error.message }),
+        { targetOrigin: window.location.origin }
+      );
     }
   }
 };
@@ -24,7 +28,7 @@ function handleResponse(response) {
 
   if (response !== null) {
     Office.context.ui.messageParent(
-      JSON.stringify({ status: "success", result: response.accessToken }),
+      JSON.stringify({ status: "success", result: response.accessToken, accountId: response.account.homeAccountId }),
       { targetOrigin: window.location.origin }
     );
   } else {
